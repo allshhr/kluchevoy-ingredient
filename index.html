@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ключевой ингредиент</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header>
+    <h1>🔑 Ключевой ингредиент</h1>
+    <p>Можно ли мне это съесть? Проверка состава при аллергии на белок коровьего молока</p>
+  </header>
+
+  <main>
+
+    <!-- Для кого сайт и настройка «следы» -->
+    <section class="card">
+      <p class="group">✅ Проверяем для аллергии на белок коровьего молока</p>
+      <label class="switch">
+        <input type="checkbox" id="traces" checked>
+        Опасны даже следы («может содержать молоко»)
+      </label>
+    </section>
+
+    <!-- Переключатель: свой состав или режим магазина -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="text">Вставить состав</button>
+      <button class="tab" data-tab="shop">Режим магазина</button>
+    </nav>
+
+    <!-- Вкладка 1. Свой состав -->
+    <section class="card" id="tab-text">
+      <h2>Состав продукта</h2>
+      <textarea id="composition" rows="5"
+        placeholder="Например: мука пшеничная, сахар, сыворотка молочная сухая, соль"></textarea>
+      <div class="examples">
+        Примеры:
+        <button class="link" data-example="мука пшеничная, сахар, сыворотка молочная сухая, казеинат натрия, мёд натуральный, соль">печенье</button>
+        <button class="link" data-example="вода, овёс, масло рапсовое, соль">овсяный напиток</button>
+        <button class="link" data-example="какао тертое, сахар, эмульгатор лецитин соевый. Может содержать следы молока">шоколад</button>
+      </div>
+      <button id="check" class="big">Проверить</button>
+    </section>
+
+    <!-- Вкладка 2. Режим магазина (как прайс-чекер) -->
+    <section class="card hidden" id="tab-shop">
+      <h2>Выберите товар на полке</h2>
+      <p class="hint">Так это будет выглядеть на прайс-чекере в магазине: покупатель подносит товар, а экран сразу отвечает.</p>
+      <div class="barcode">
+        <input id="barcode" inputmode="numeric" placeholder="Введите штрихкод">
+        <button id="scan">Найти</button>
+      </div>
+      <div id="products" class="products"></div>
+    </section>
+
+    <!-- Ответ -->
+    <section class="card hidden" id="result"></section>
+
+  </main>
+
+  <footer>
+    Это подсказка, а не медицинская рекомендация. При сомнении уточните у врача или производителя.<br>
+    Учебный прототип команды «Ключевой ингредиент», кейс-чемпионат «Ключ».
+  </footer>
+
+  <!-- Сначала словарь, потом логика -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
